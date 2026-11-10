@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munni Store | Cosmetics Wholesale & Bulk Supplier</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font (Inter & Plus Jakarta Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            pink: '#EC4899',
+                            rose: '#F43F5E',
+                            purple: '#8B5CF6',
+                            violet: '#7C3AED',
+                            gold: '#F59E0B',
+                            dark: '#0F172A',
+                            softBg: '#FDF2F8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .gradient-text {
+            background: linear-gradient(135deg, #EC4899 0%, #8B5CF6 50%, #F43F5E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(236, 72, 153, 0.15), transparent 50%),
+                        radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.15), transparent 50%),
+                        linear-gradient(to bottom, #FFF5F9, #FFFFFF);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(244, 114, 182, 0.2);
+        }
+        .badge-glow {
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDF2F8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #EC4899;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-pink-500 selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-purple-700 via-pink-600 to-rose-600 text-white text-xs sm:text-sm font-medium py-2.5 px-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center text-center sm:text-left">
+            <div class="flex items-center space-x-2 mx-auto sm:mx-0">
+                <span class="bg-yellow-400 text-slate-900 text-[10px] sm:text-xs font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Wholesale Special</span>
+                <span>Countrywide Cash on Delivery for Bulk Cosmetics Orders!</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-6 text-xs">
+                <a href="tel:+8801999794137" class="hover:underline flex items-center gap-1.5"><i class="fa-solid fa-phone"></i> +880 1999-794137</a>
+                <span>|</span>
+                <a href="mailto:monirkhanttxx20@yahoo.com" class="hover:underline flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> monirkhanttxx20@yahoo.com</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header / Navigation -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md shadow-sm border-b border-pink-100 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-pink-500 via-rose-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-pink-500/30 transform hover:rotate-6 transition">
+                        <i class="fa-solid fa-gem text-2xl"></i>
+                    </div>
+                    <div>
+                        <a href="#" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 flex items-center gap-1">
+                            Munni <span class="gradient-text">Store</span>
+                        </a>
+                        <p class="text-[11px] font-bold tracking-widest text-pink-600 uppercase">Cosmetics Wholesale</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex space-x-8 text-slate-700 font-semibold text-sm">
+                    <a href="#home" class="hover:text-pink-600 transition">Home</a>
+                    <a href="#categories" class="hover:text-pink-600 transition">Categories</a>
+                    <a href="#products" class="hover:text-pink-600 transition">Bulk Catalog</a>
+                    <a href="#why-us" class="hover:text-pink-600 transition">Why Choose Us</a>
+                    <a href="#faqs" class="hover:text-pink-600 transition">FAQs</a>
+                    <a href="#contact" class="hover:text-pink-600 transition">Contact Us</a>
+                </nav>
+
+                <!-- Action Buttons & Cart Icon -->
+                <div class="flex items-center space-x-3">
+                    <!-- Cart Button -->
+                    <button onclick="toggleCartModal()" class="relative p-3 bg-pink-50 text-pink-600 hover:bg-pink-100 rounded-2xl transition shadow-sm" title="Wholesale Cart Drawer">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        <span id="cartBadge" class="absolute -top-1.5 -right-1.5 bg-gradient-to-r from-rose-500 to-pink-600 text-white text-xs font-black w-6 h-6 rounded-full flex items-center justify-center shadow">0</span>
+                    </button>
+
+                    <!-- WhatsApp Quick CTA -->
+                    <a href="https://wa.me/8801999794137?text=Hello%20Munni%20Store,%20I%20am%20interested%20in%20buying%20wholesale%20cosmetics." target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm px-5 py-3 rounded-2xl shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>WhatsApp Order</span>
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden p-2 text-slate-600 hover:text-pink-600">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-pink-100 bg-white px-4 pt-3 pb-6 space-y-3">
+            <a href="#home" class="block py-2 text-slate-700 font-semibold hover:text-pink-600">Home</a>
+            <a href="#categories" class="block py-2 text-slate-700 font-semibold hover:text-pink-600">Categories</a>
+            <a href="#products" class="block py-2 text-slate-700 font-semibold hover:text-pink-600">Bulk Catalog</a>
+            <a href="#why-us" class="block py-2 text-slate-700 font-semibold hover:text-pink-600">Why Choose Us</a>
+            <a href="#faqs" class="block py-2 text-slate-700 font-semibold hover:text-pink-600">FAQs</a>
+            <a href="#contact" class="block py-2 text-slate-700 font-semibold hover:text-pink-600">Contact Us</a>
+            <div class="pt-2">
+                <a href="https://wa.me/8801999794137" target="_blank" class="w-full flex items-center justify-center gap-2 bg-emerald-500 text-white font-bold py-3 rounded-xl">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Direct WhatsApp Order
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient relative overflow-hidden py-12 md:py-20 lg:py-24">
+        <div class="absolute -top-10 -right-10 w-72 h-72 bg-pink-400/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-pink-100 border border-pink-200 text-pink-700 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full shadow-sm">
+                        <i class="fa-solid fa-sparkles text-pink-500"></i>
+                        <span>Trusted Cosmetics Wholesale Supplier in Amtali & Barguna</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-tight">
+                        Authentic Cosmetics at <br class="hidden sm:inline"/>
+                        <span class="gradient-text">Direct Importer Wholesale Rates!</span>
+                    </h1>
+
+                    <p class="text-slate-600 text-base sm:text-lg max-w-2xl leading-relaxed mx-auto lg:mx-0">
+                        Munni Store provides 100% original skincare, makeup, hair care, and fragrance products for retailers, online resellers, and bulk buyers with maximum profit margins and nationwide fast delivery.
+                    </p>
+
+                    <!-- Call To Action Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#products" class="w-full sm:w-auto text-center bg-gradient-to-r from-pink-600 via-rose-500 to-purple-600 hover:opacity-95 text-white font-bold text-lg px-8 py-4 rounded-2xl shadow-xl shadow-pink-500/25 transition transform hover:-translate-y-1">
+                            <i class="fa-solid fa-box-open mr-2"></i> Explore Wholesale Catalog
+                        </a>
+                        <a href="tel:+8801999794137" class="w-full sm:w-auto text-center bg-white hover:bg-slate-50 text-slate-800 font-bold text-lg px-8 py-4 rounded-2xl border-2 border-slate-200 shadow-sm transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-phone-volume text-pink-600"></i> Call: +880 1999-794137
+                        </a>
+                    </div>
+
+                    <!-- Highlight Metrics -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-pink-200/60 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-pink-600">100%</p>
+                            <p class="text-xs sm:text-sm text-slate-500 font-medium">Original Stock</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-purple-600">500+</p>
+                            <p class="text-xs sm:text-sm text-slate-500 font-medium">Bulk Products</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-rose-600">24/7</p>
+                            <p class="text-xs sm:text-sm text-slate-500 font-medium">Order Support</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Showcase -->
+                <div class="lg:col-span-5">
+                    <div class="relative">
+                        <div class="relative bg-white rounded-3xl p-4 shadow-2xl border border-pink-100 transform rotate-1 hover:rotate-0 transition duration-500">
+                            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop" alt="Cosmetics Wholesale Munni Store" class="rounded-2xl w-full h-80 sm:h-96 object-cover">
+                            
+                            <!-- Floating Badge 1 -->
+                            <div class="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-pink-100 flex items-center gap-3">
+                                <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl font-bold">
+                                    <i class="fa-solid fa-truck-fast"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 font-medium">Fast Dispatch</p>
+                                    <p class="text-sm font-bold text-slate-800">Cash on Delivery Available</p>
+                                </div>
+                            </div>
+
+                            <!-- Floating Badge 2 -->
+                            <div class="absolute -top-4 -right-4 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 font-extrabold px-4 py-2 rounded-2xl shadow-lg text-xs tracking-wider uppercase badge-glow">
+                                <i class="fa-solid fa-tags mr-1"></i> Best Bulk Price Guaranteed
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-pink-600 font-bold text-sm tracking-wider uppercase">Product Categories</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Browse Our Wholesale Collections</h2>
+                <div class="w-20 h-1.5 bg-gradient-to-r from-pink-500 to-purple-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+                
+                <!-- Category 1 -->
+                <div onclick="filterProducts('skincare')" class="group cursor-pointer bg-slate-50 hover:bg-pink-50/80 p-6 rounded-2xl border border-slate-100 hover:border-pink-200 transition text-center shadow-sm hover:shadow-md">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-pink-100 text-pink-600 flex items-center justify-center text-2xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-pump-soap"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base sm:text-lg group-hover:text-pink-600 transition">Skincare</h3>
+                    <p class="text-xs text-slate-500 mt-1">Creams, Serums, Cleansers</p>
+                    <span class="inline-block mt-3 text-[11px] font-semibold text-pink-600 bg-pink-100/60 px-2.5 py-1 rounded-full">Bulk Rates</span>
+                </div>
+
+                <!-- Category 2 -->
+                <div onclick="filterProducts('makeup')" class="group cursor-pointer bg-slate-50 hover:bg-purple-50/80 p-6 rounded-2xl border border-slate-100 hover:border-purple-200 transition text-center shadow-sm hover:shadow-md">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base sm:text-lg group-hover:text-purple-600 transition">Makeup & Cosmetics</h3>
+                    <p class="text-xs text-slate-500 mt-1">Lipsticks, Foundations, Eyeshadows</p>
+                    <span class="inline-block mt-3 text-[11px] font-semibold text-purple-600 bg-purple-100/60 px-2.5 py-1 rounded-full">Dozen Rates</span>
+                </div>
+
+                <!-- Category 3 -->
+                <div onclick="filterProducts('haircare')" class="group cursor-pointer bg-slate-50 hover:bg-rose-50/80 p-6 rounded-2xl border border-slate-100 hover:border-rose-200 transition text-center shadow-sm hover:shadow-md">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-2xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-spray-can"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base sm:text-lg group-hover:text-rose-600 transition">Hair Care</h3>
+                    <p class="text-xs text-slate-500 mt-1">Shampoos, Oils, Masks</p>
+                    <span class="inline-block mt-3 text-[11px] font-semibold text-rose-600 bg-rose-100/60 px-2.5 py-1 rounded-full">Factory Price</span>
+                </div>
+
+                <!-- Category 4 -->
+                <div onclick="filterProducts('fragrance')" class="group cursor-pointer bg-slate-50 hover:bg-amber-50/80 p-6 rounded-2xl border border-slate-100 hover:border-amber-200 transition text-center shadow-sm hover:shadow-md">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-bottle-droplet"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base sm:text-lg group-hover:text-amber-600 transition">Perfumes & Sprays</h3>
+                    <p class="text-xs text-slate-500 mt-1">Men & Women Perfumes</p>
+                    <span class="inline-block mt-3 text-[11px] font-semibold text-amber-600 bg-amber-100/60 px-2.5 py-1 rounded-full">Wholesale</span>
+                </div>
+
+                <!-- Category 5 -->
+                <div onclick="filterProducts('personal')" class="group cursor-pointer bg-slate-50 hover:bg-indigo-50/80 p-6 rounded-2xl border border-slate-100 hover:border-indigo-200 transition text-center shadow-sm hover:shadow-md col-span-2 sm:col-span-1">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-2xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-bath"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base sm:text-lg group-hover:text-indigo-600 transition">Personal Care</h3>
+                    <p class="text-xs text-slate-500 mt-1">Lotions, Soaps, Body Wash</p>
+                    <span class="inline-block mt-3 text-[11px] font-semibold text-indigo-600 bg-indigo-100/60 px-2.5 py-1 rounded-full">Top Offers</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Wholesale Product Catalog -->
+    <section id="products" class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+                <div>
+                    <span class="text-pink-600 font-bold text-sm tracking-wider uppercase">Wholesale Catalog</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">Popular Bulk Products</h2>
+                </div>
+
+                <!-- Category Filter Tabs -->
+                <div class="flex flex-wrap gap-2 mt-4 md:mt-0">
+                    <button onclick="filterProducts('all')" class="cat-btn active bg-pink-600 text-white font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl transition shadow-sm">All Items</button>
+                    <button onclick="filterProducts('skincare')" class="cat-btn bg-white hover:bg-pink-50 text-slate-700 font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-slate-200 transition">Skincare</button>
+                    <button onclick="filterProducts('makeup')" class="cat-btn bg-white hover:bg-pink-50 text-slate-700 font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-slate-200 transition">Makeup</button>
+                    <button onclick="filterProducts('haircare')" class="cat-btn bg-white hover:bg-pink-50 text-slate-700 font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-slate-200 transition">Hair Care</button>
+                    <button onclick="filterProducts('fragrance')" class="cat-btn bg-white hover:bg-pink-50 text-slate-700 font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-slate-200 transition">Fragrance</button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Loaded dynamically via JavaScript -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="py-16 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-pink-600 font-bold text-sm tracking-wider uppercase">Why Partner With Us</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Why Retailers Choose Munni Store?</h2>
+                <p class="text-slate-600 mt-3">The most preferred cosmetics wholesale supplier in Amtali Pourashava and Barguna region.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Benefit 1 -->
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-pink-200 transition hover:shadow-lg group">
+                    <div class="w-14 h-14 bg-pink-500 text-white rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-pink-500/30 mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Direct Importer Rates</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">No middlemen commissions. We source directly from top manufacturers and importers to give you maximum margin.</p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-purple-200 transition hover:shadow-lg group">
+                    <div class="w-14 h-14 bg-purple-600 text-white rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-purple-600/30 mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">100% Authentic Products</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Zero replica or expired products. Every single item in our warehouse passes strict quality and authenticity checks.</p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-rose-200 transition hover:shadow-lg group">
+                    <div class="w-14 h-14 bg-rose-500 text-white rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-rose-500/30 mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-truck-ramp-box"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Fast Nationwide Shipping</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Reliable shipping across Barguna and nationwide with Cash on Delivery options for retail shops.</p>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-amber-200 transition hover:shadow-lg group">
+                    <div class="w-14 h-14 bg-amber-500 text-white rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-amber-500/30 mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Easy Exchange & Support</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Hassle-free replacement for damaged transit items and dedicated customer support for shop orders.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Direct Order Form & Calculator Section -->
+    <section class="py-16 bg-slate-100/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                
+                <!-- Order Form -->
+                <div class="lg:col-span-7 bg-white p-8 rounded-3xl shadow-xl border border-pink-100 space-y-6">
+                    <div>
+                        <span class="text-pink-600 font-bold text-xs uppercase tracking-wider">Quick Checkout</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Direct Wholesale Order Form</h2>
+                        <p class="text-slate-500 text-sm mt-1">Fill out the details below to submit your wholesale order directly to our sales team.</p>
+                    </div>
+
+                    <form id="directOrderForm" onsubmit="handleDirectFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Name *</label>
+                                <input type="text" id="buyerName" required placeholder="e.g. Md. Monir Khan" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-pink-500 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Shop / Business Name *</label>
+                                <input type="text" id="shopName" required placeholder="e.g. Khan Cosmetics Store" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-pink-500 text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Phone Number *</label>
+                                <input type="tel" id="buyerPhone" required placeholder="e.g. 01999794137" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-pink-500 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Email Address</label>
+                                <input type="email" id="buyerEmail" placeholder="e.g. monirkhanttxx20@yahoo.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-pink-500 text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Delivery Address *</label>
+                            <textarea id="buyerAddress" rows="2" required placeholder="Detailed address with shop number, market, road name & city" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-pink-500 text-sm"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Payment Method Option</label>
+                            <select id="paymentMethod" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-pink-500 text-sm bg-white">
+                                <option value="Cash on Delivery (COD)">Cash on Delivery (COD)</option>
+                                <option value="bKash / Nagad Mobile Banking">bKash / Nagad Mobile Banking</option>
+                                <option value="Direct Bank Transfer">Direct Bank Transfer</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Order Notes / Custom Product Requirements</label>
+                            <textarea id="orderNotes" rows="2" placeholder="Mention any specific shade names, brand requirements, or instructions" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-pink-500 text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-pink-600 via-rose-500 to-purple-600 text-white font-bold py-4 rounded-xl shadow-lg hover:opacity-95 transition flex items-center justify-center gap-2 text-base">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Order via WhatsApp & SMS
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Order Summary Side Box -->
+                <div class="lg:col-span-5 bg-white p-8 rounded-3xl shadow-xl border border-slate-100 space-y-6">
+                    <h3 class="text-xl font-bold text-slate-900 border-b border-slate-100 pb-3 flex justify-between items-center">
+                        <span>Cart Summary</span>
+                        <span class="text-xs bg-pink-100 text-pink-600 font-extrabold px-3 py-1 rounded-full uppercase">Wholesale Memo</span>
+                    </h3>
+
+                    <div id="formCartSummary" class="space-y-3 max-h-72 overflow-y-auto divide-y divide-slate-100">
+                        <!-- Filled by JS -->
+                    </div>
+
+                    <div class="bg-pink-50 p-4 rounded-2xl space-y-2 text-sm font-semibold text-slate-700">
+                        <div class="flex justify-between">
+                            <span>Subtotal:</span>
+                            <span id="summarySubtotal" class="font-bold text-slate-900">৳ 0</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-slate-500">
+                            <span>Estimated Delivery Charge:</span>
+                            <span class="text-emerald-600 font-bold">Calculated on Call</span>
+                        </div>
+                        <div class="flex justify-between border-t border-pink-200/60 pt-2 text-lg font-black text-pink-600">
+                            <span>Total Estimated:</span>
+                            <span id="summaryTotal">৳ 0</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl flex items-start gap-3">
+                        <i class="fa-solid fa-triangle-exclamation text-amber-500 text-xl mt-0.5"></i>
+                        <p class="text-xs text-amber-800 leading-relaxed">
+                            <strong>Notice:</strong> Prices shown are wholesale rates. Final total may vary depending on bulk quantities ordered. Our representative will confirm via phone call.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faqs" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-pink-600 font-bold text-sm tracking-wider uppercase">Frequently Asked Questions</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Wholesale FAQ</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="border border-slate-200 rounded-2xl p-5 hover:border-pink-300 transition">
+                    <h3 class="font-bold text-slate-900 text-base sm:text-lg flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
+                        <span>What is the minimum order quantity (MOQ) for wholesale purchase?</span>
+                        <i class="fa-solid fa-chevron-down text-pink-500 transition-transform"></i>
+                    </h3>
+                    <p class="text-slate-600 text-sm mt-3 hidden leading-relaxed">
+                        Our Minimum Order Quantity (MOQ) depends on the product type. Usually, it starts from 6 pieces, 1 dozen (12 pieces), or 24 pieces for cosmetic items like lipsticks and lotions.
+                    </p>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="border border-slate-200 rounded-2xl p-5 hover:border-pink-300 transition">
+                    <h3 class="font-bold text-slate-900 text-base sm:text-lg flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
+                        <span>Do you provide Cash on Delivery (COD) for bulk orders?</span>
+                        <i class="fa-solid fa-chevron-down text-pink-500 transition-transform"></i>
+                    </h3>
+                    <p class="text-slate-600 text-sm mt-3 hidden leading-relaxed">
+                        Yes! We offer Cash on Delivery across Barguna, Amtali Pourashava, and all courier-accessible locations throughout Bangladesh. A minimal advance transport token fee may apply for outer district shipments.
+                    </p>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border border-slate-200 rounded-2xl p-5 hover:border-pink-300 transition">
+                    <h3 class="font-bold text-slate-900 text-base sm:text-lg flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
+                        <span>Are all cosmetics items original and authentic?</span>
+                        <i class="fa-solid fa-chevron-down text-pink-500 transition-transform"></i>
+                    </h3>
+                    <p class="text-slate-600 text-sm mt-3 hidden leading-relaxed">
+                        Absolutely. Munni Store guarantees 100% original and authentic cosmetics directly sourced from importers and brand distributors. We do not sell counterfeit or copy products.
+                    </p>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="border border-slate-200 rounded-2xl p-5 hover:border-pink-300 transition">
+                    <h3 class="font-bold text-slate-900 text-base sm:text-lg flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
+                        <span>Can I visit your physical wholesale store in Amtali?</span>
+                        <i class="fa-solid fa-chevron-down text-pink-500 transition-transform"></i>
+                    </h3>
+                    <p class="text-slate-600 text-sm mt-3 hidden leading-relaxed">
+                        Yes, you are warmly invited to visit our shop! Address: Holding No.: 433, Shop No.: 07, Sadar Road, Amtali Pourashava, Barguna.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wholesale Call to Action Banner -->
+    <section class="py-12 bg-gradient-to-r from-pink-600 via-rose-600 to-purple-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <h2 class="text-3xl sm:text-4xl font-extrabold">Need Custom Bulk Quotations for Your Shop?</h2>
+            <p class="text-pink-100 text-base sm:text-lg max-w-2xl mx-auto">Call our sales desk directly or send your product list over WhatsApp to receive instant pricing and stock status.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://wa.me/8801999794137?text=Hello%20Munni%20Store,%20I%20want%20to%20place%20a%20bulk%20wholesale%20order." target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg transition flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp Direct Chat
+                </a>
+                <a href="tel:+8801999794137" class="bg-white text-pink-700 hover:bg-pink-50 font-bold px-8 py-3.5 rounded-xl shadow-lg transition flex items-center gap-2">
+                    <i class="fa-solid fa-phone"></i> Call +880 1999-794137
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Store Location -->
+    <footer id="contact" class="bg-slate-900 text-white pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+                
+                <!-- Business Profile -->
+                <div class="lg:col-span-4 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-pink-500 flex items-center justify-center text-white text-xl">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <span class="text-2xl font-bold">Munni Store</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Munni Store is a premier Cosmetics Wholesale Business based in Amtali Pourashava, Barguna. Category: Shopping and Retail. Supplying authentic cosmetics at competitive wholesale prices nationwide.
+                    </p>
+                    <div class="pt-2 flex space-x-3">
+                        <a href="#" class="w-9 h-9 bg-slate-800 hover:bg-pink-600 rounded-lg flex items-center justify-center transition text-slate-300 hover:text-white">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://wa.me/8801999794137" target="_blank" class="w-9 h-9 bg-slate-800 hover:bg-emerald-600 rounded-lg flex items-center justify-center transition text-slate-300 hover:text-white">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:monirkhanttxx20@yahoo.com" class="w-9 h-9 bg-slate-800 hover:bg-rose-600 rounded-lg flex items-center justify-center transition text-slate-300 hover:text-white">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Details -->
+                <div class="lg:col-span-4 space-y-4">
+                    <h3 class="text-lg font-bold text-white border-b border-pink-500/40 pb-2 inline-block">Contact Information</h3>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-pink-500 mt-1"></i>
+                            <span>Holding No.: 433, Shop No.: 07, Sadar Road, Amtali Pourashava, Barguna, Bangladesh.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-pink-500"></i>
+                            <a href="tel:+8801999794137" class="hover:text-pink-400">+880 1999-794137 / 01999794137</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-pink-500"></i>
+                            <a href="mailto:monirkhanttxx20@yahoo.com" class="hover:text-pink-400">monirkhanttxx20@yahoo.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-clock text-pink-500"></i>
+                            <span>Everyday: 9:00 AM - 10:00 PM (BST)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Embedded Google Map -->
+                <div class="lg:col-span-4 space-y-4">
+                    <h3 class="text-lg font-bold text-white border-b border-pink-500/40 pb-2 inline-block">Store Location Map</h3>
+                    <div class="rounded-2xl overflow-hidden border border-slate-700 h-44 bg-slate-800 relative">
+                        <iframe 
+                            class="w-full h-full border-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition duration-300"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14774.965416244795!2d90.2241!3d22.2891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30aa925000000001%3A0x1111111111111111!2sAmtali%20Bazar%2C%20Barguna!5e0!3m2!1sen!2sbd!4v1680000000000!5m2!1sen!2sbd" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 space-y-4 sm:space-y-0">
+                <p>&copy; 2026 Munni Store (Cosmetics Wholesale). All Rights Reserved.</p>
+                <p>Category: Shopping and Retail | Amtali, Barguna</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer Modal -->
+    <div id="cartModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+            <!-- Modal Header -->
+            <div class="p-5 bg-gradient-to-r from-pink-600 to-purple-600 text-white flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-cart-shopping text-xl"></i>
+                    <h3 class="font-bold text-lg">Wholesale Cart & Memo</h3>
+                </div>
+                <button onclick="toggleCartModal()" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Cart Items List -->
+            <div id="cartItemsContainer" class="p-6 overflow-y-auto flex-1 space-y-4 divide-y divide-slate-100">
+                <!-- Cart items inserted dynamically -->
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-6 bg-slate-50 border-t border-slate-100 space-y-4">
+                <div class="flex justify-between items-center font-bold text-slate-800 text-lg">
+                    <span>Total Wholesale Cost:</span>
+                    <span id="cartTotalPrice" class="text-pink-600">৳ 0</span>
+                </div>
+                <p class="text-xs text-slate-500">
+                    <i class="fa-solid fa-circle-info text-pink-500 mr-1"></i> Confirm your order list directly on WhatsApp with itemized breakdown.
+                </p>
+                <button onclick="sendWhatsAppOrder()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> Confirm Order via WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Sample Wholesale Product Data
+        const products = [
+            {
+                id: 1,
+                name: 'Original Vitamin C Brightening Cleanser (100ml)',
+                category: 'skincare',
+                moq: '12 Pcs (1 Dozen)',
+                moqNum: 12,
+                pricePerPiece: 140,
+                regularPrice: 220,
+                image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=400&auto=format&fit=crop',
+                badge: 'Bulk Discount'
+            },
+            {
+                id: 2,
+                name: 'Matte Long-Lasting Lipstick Combo Set',
+                category: 'makeup',
+                moq: '24 Pcs (2 Dozens)',
+                moqNum: 24,
+                pricePerPiece: 65,
+                regularPrice: 150,
+                image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?q=80&w=400&auto=format&fit=crop',
+                badge: 'Bestseller'
+            },
+            {
+                id: 3,
+                name: 'Premium Onion Hair Growth Oil (200ml)',
+                category: 'haircare',
+                moq: '6 Pcs',
+                moqNum: 6,
+                pricePerPiece: 210,
+                regularPrice: 350,
+                image: 'https://images.unsplash.com/photo-1608248597261-833258657640?q=80&w=400&auto=format&fit=crop',
+                badge: 'Hot Deal'
+            },
+            {
+                id: 4,
+                name: 'Nourishing Glow Night Cream (50g)',
+                category: 'skincare',
+                moq: '6 Pcs',
+                moqNum: 6,
+                pricePerPiece: 320,
+                regularPrice: 550,
+                image: 'https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=400&auto=format&fit=crop',
+                badge: 'Imported'
+            },
+            {
+                id: 5,
+                name: 'Long-Lasting Luxury Perfume Body Spray',
+                category: 'fragrance',
+                moq: '12 Pcs (1 Dozen)',
+                moqNum: 12,
+                pricePerPiece: 180,
+                regularPrice: 320,
+                image: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=400&auto=format&fit=crop',
+                badge: 'Wholesale Special'
+            },
+            {
+                id: 6,
+                name: 'Deep Hydration Body Lotion (400ml)',
+                category: 'personal',
+                moq: '12 Pcs',
+                moqNum: 12,
+                pricePerPiece: 240,
+                regularPrice: 400,
+                image: 'https://images.unsplash.com/photo-1526947425960-945c6e72858f?q=80&w=400&auto=format&fit=crop',
+                badge: 'Bulk Savings'
+            }
+        ];
+
+        // Cart State
+        let cart = [];
+
+        // Render Product Cards
+        function renderProducts(items) {
+            const container = document.getElementById('productGrid');
+            container.innerHTML = '';
+
+            items.forEach(product => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-3xl p-5 border border-slate-100 hover:border-pink-200 transition shadow-sm hover:shadow-xl flex flex-col justify-between group";
+                card.innerHTML = `
+                    <div>
+                        <div class="relative overflow-hidden rounded-2xl mb-4 bg-slate-100 h-52">
+                            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-pink-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow">
+                                ${product.badge}
+                            </span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-base mb-2 group-hover:text-pink-600 transition leading-snug">${product.name}</h3>
+                        
+                        <div class="space-y-1 mb-4">
+                            <p class="text-xs text-slate-500 font-medium">Min Order Quantity: <span class="text-pink-600 font-bold">${product.moq}</span></p>
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-2xl font-extrabold text-pink-600">৳ ${product.pricePerPiece}</span>
+                                <span class="text-xs text-slate-400 font-medium">/ pc (Wholesale)</span>
+                                <span class="text-xs text-slate-400 line-through">৳ ${product.regularPrice}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="addToCart(${product.id})" class="w-full bg-slate-900 hover:bg-pink-600 text-white font-semibold py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-plus"></i> Add to Cart
+                    </button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Filter Products by Category
+        function filterProducts(cat) {
+            const buttons = document.querySelectorAll('.cat-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-pink-600', 'text-white', 'active');
+                btn.classList.add('bg-white', 'text-slate-700');
+            });
+
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('bg-pink-600', 'text-white', 'active');
+                event.currentTarget.classList.remove('bg-white', 'text-slate-700');
+            }
+
+            if (cat === 'all') {
+                renderProducts(products);
+            } else {
+                const filtered = products.filter(p => p.category === cat);
+                renderProducts(filtered);
+            }
+        }
+
+        // Add Product to Cart
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingIndex = cart.findIndex(item => item.id === productId);
+
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += 1;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+
+            updateCartUI();
+            toggleCartModal(true);
+        }
+
+        // Update Cart UI
+        function updateCartUI() {
+            const cartBadge = document.getElementById('cartBadge');
+            const container = document.getElementById('cartItemsContainer');
+            const totalElement = document.getElementById('cartTotalPrice');
+            const summaryContainer = document.getElementById('formCartSummary');
+            const summarySubtotal = document.getElementById('summarySubtotal');
+            const summaryTotal = document.getElementById('summaryTotal');
+
+            const totalItemsCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            cartBadge.innerText = totalItemsCount;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-slate-400 space-y-2">
+                        <i class="fa-solid fa-basket-shopping text-4xl"></i>
+                        <p class="text-sm">Your wholesale cart is empty</p>
+                    </div>
+                `;
+                summaryContainer.innerHTML = `<p class="text-xs text-slate-400">No products added to cart yet.</p>`;
+                totalElement.innerText = '৳ 0';
+                summarySubtotal.innerText = '৳ 0';
+                summaryTotal.innerText = '৳ 0';
+                return;
+            }
+
+            let totalSum = 0;
+            container.innerHTML = '';
+            summaryContainer.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.pricePerPiece * item.qty;
+                totalSum += itemTotal;
+
+                // Drawer Row
+                const itemRow = document.createElement('div');
+                itemRow.className = "pt-3 flex justify-between items-center gap-3";
+                itemRow.innerHTML = `
+                    <div class="flex-1">
+                        <h4 class="font-bold text-slate-800 text-sm">${item.name}</h4>
+                        <p class="text-xs text-slate-500">Rate: ৳ ${item.pricePerPiece} | MOQ: ${item.moq}</p>
+                        <p class="text-xs font-bold text-pink-600 mt-0.5">Subtotal: ৳ ${itemTotal}</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="changeQty(${index}, -1)" class="w-7 h-7 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-sm font-bold">-</button>
+                        <span class="text-sm font-bold w-6 text-center">${item.qty}</span>
+                        <button onclick="changeQty(${index}, 1)" class="w-7 h-7 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-sm font-bold">+</button>
+                    </div>
+                `;
+                container.appendChild(itemRow);
+
+                // Summary Row
+                const summaryRow = document.createElement('div');
+                summaryRow.className = "flex justify-between items-center text-xs text-slate-700 pt-2";
+                summaryRow.innerHTML = `
+                    <span class="font-medium">${item.name} (x${item.qty})</span>
+                    <span class="font-bold">৳ ${itemTotal}</span>
+                `;
+                summaryContainer.appendChild(summaryRow);
+            });
+
+            totalElement.innerText = `৳ ${totalSum}`;
+            summarySubtotal.innerText = `৳ ${totalSum}`;
+            summaryTotal.innerText = `৳ ${totalSum}`;
+        }
+
+        // Change Quantity
+        function changeQty(index, change) {
+            cart[index].qty += change;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        // Toggle Cart Modal
+        function toggleCartModal(forceOpen = false) {
+            const modal = document.getElementById('cartModal');
+            if (forceOpen) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.toggle('hidden');
+            }
+        }
+
+        // Send Order via WhatsApp
+        function sendWhatsAppOrder() {
+            if (cart.length === 0) {
+                alert('Please add products to your cart first.');
+                return;
+            }
+
+            let message = "Hello Munni Store,%0AI would like to place a wholesale order for the following items:%0A%0A";
+            let total = 0;
+
+            cart.forEach((item, i) => {
+                const sub = item.pricePerPiece * item.qty;
+                total += sub;
+                message += `${i + 1}. ${item.name} - ${item.qty} units (Total: ৳ ${sub})%0A`;
+            });
+
+            message += `%0A*Estimated Total Cost:* ৳ ${total}%0A`;
+            message += `Please send me payment & invoice details.`;
+
+            const whatsappUrl = `https://wa.me/8801999794137?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Handle Direct Order Form Submit
+        function handleDirectFormSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('buyerName').value;
+            const shop = document.getElementById('shopName').value;
+            const phone = document.getElementById('buyerPhone').value;
+            const email = document.getElementById('buyerEmail').value;
+            const address = document.getElementById('buyerAddress').value;
+            const payment = document.getElementById('paymentMethod').value;
+            const notes = document.getElementById('orderNotes').value;
+
+            let orderItemsMsg = "";
+            let total = 0;
+
+            if (cart.length > 0) {
+                cart.forEach((item, i) => {
+                    const sub = item.pricePerPiece * item.qty;
+                    total += sub;
+                    orderItemsMsg += `${i + 1}. ${item.name} (Qty: ${item.qty}) - ৳${sub}%0A`;
+                });
+            } else {
+                orderItemsMsg = "Custom Order inquiry (No cart items selected)%0A";
+            }
+
+            let message = `*NEW WHOLESALE ORDER INQUIRY*%0A%0A`;
+            message += `*Buyer Name:* ${name}%0A`;
+            message += `*Shop Name:* ${shop}%0A`;
+            message += `*Phone:* ${phone}%0A`;
+            if(email) message += `*Email:* ${email}%0A`;
+            message += `*Address:* ${address}%0A`;
+            message += `*Payment Method:* ${payment}%0A%0A`;
+            message += `*ORDER ITEMS:*%0A${orderItemsMsg}`;
+            if(total > 0) message += `%0A*Total Estimated:* ৳ ${total}%0A`;
+            if(notes) message += `%0A*Order Notes:* ${notes}`;
+
+            const whatsappUrl = `https://wa.me/8801999794137?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Toggle FAQ Accordion
+        function toggleFaq(element) {
+            const p = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            p.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Mobile Menu Listener
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Initialize App
+        window.onload = function() {
+            renderProducts(products);
+            updateCartUI();
+        }
+    </script>
+</body>
+</html>
